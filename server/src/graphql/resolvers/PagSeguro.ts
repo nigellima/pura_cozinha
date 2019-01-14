@@ -21,8 +21,8 @@ function param( params ) {
 // @param  void
 export async function getPaymentSessionId(): Promise<string>{
   const reqData = {
-    'email': 'guilherme.mst@gmail.com',
-    'token': '6D17B04C51F749EEA3F3ECE500FE01C1'
+    'email': process.env.PAGSEGURO_USERNAME,
+    'token': process.env.PAGSEGURO_PASSWORD
   };
   let sessionId = '';
   
@@ -59,11 +59,11 @@ export async function checkoutPayment(request: IPaymentRequest): Promise<any>{
   //12/2030
   
   const reqData = {
-    'email': 'guilherme.mst@gmail.com',
-    'token': '6D17B04C51F749EEA3F3ECE500FE01C1',
+    'email': process.env.PAGSEGURO_USERNAME,
+    'token': process.env.PAGSEGURO_PASSWORD,
     'paymentMode': 'default',
     'paymentMethod': 'creditCard',
-    'receiverEmail': 'guilherme.mst@gmail.com',
+    'receiverEmail': process.env.PAGSEGURO_USERNAME,
     'currency': 'BRL',
     'extraAmount': '0.00',
     'notificationURL': 'https://sualoja.com.br/notifica.html',
